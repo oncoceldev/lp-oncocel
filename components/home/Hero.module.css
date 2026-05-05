@@ -1,0 +1,314 @@
+.hero {
+  position: relative;
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+
+/* ─── Stage ─── */
+.heroStage {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1180px;
+  border-radius: var(--radius-xl);
+  background: #fff;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  padding: 64px 64px 80px;
+  box-shadow: var(--shadow-m);
+}
+
+/* Aurora (decoração de fundo do stage) */
+.heroAurora {
+  position: absolute;
+  inset: -40% -20% auto -20%;
+  height: 120%;
+  pointer-events: none;
+  z-index: 0;
+}
+.heroAurora::before,
+.heroAurora::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .85;
+}
+.heroAurora::before {
+  width: 55%;
+  aspect-ratio: 1;
+  left: -8%;
+  top: -10%;
+  background: radial-gradient(circle, #E6D5FF 0%, rgba(230,213,255,0) 70%);
+}
+.heroAurora::after {
+  width: 60%;
+  aspect-ratio: 1;
+  right: -10%;
+  top: 20%;
+  background: radial-gradient(circle, #D0B0FF 0%, rgba(208,176,255,0) 70%);
+}
+
+/* Tudo dentro do stage fica acima da aurora */
+.heroStage > * { position: relative; z-index: 1; }
+
+/* ─── Layout ─── */
+.heroLayout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoWrapper {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  aspect-ratio: 1034 / 520;
+  filter: drop-shadow(0 20px 40px rgba(111, 55, 128, 0.15));
+}
+
+.logoImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.desktopOnly {
+  display: flex;
+}
+
+/* ─── Eyebrow ─── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 6px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-s);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.eyebrowPill {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--lilac-100);
+  color: var(--purple-700);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .02em;
+}
+.eyebrowSep { color: var(--muted); }
+
+/* ─── Título ─── */
+.heroTitle {
+  margin: 22px 0 20px;
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: clamp(44px, 6.2vw, 84px);
+  line-height: .98;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  max-width: 14ch;
+}
+.heroTitle em {
+  font-style: italic;
+  background: linear-gradient(100deg, var(--violet-500), var(--purple-700) 40%, var(--violet-400));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+.heroTitle em::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 6%;
+  bottom: .05em;
+  height: .12em;
+  background: linear-gradient(90deg, transparent, var(--lilac-300) 20%, var(--violet-500) 80%, transparent);
+  border-radius: 4px;
+  opacity: .55;
+}
+
+/* ─── Lede ─── */
+.heroLede {
+  max-width: 62ch;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.heroLede strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ─── Actions ─── */
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+/* ─── Meta card (floating info) ─── */
+.heroMeta {
+  position: absolute;
+  right: 48px;
+  bottom: 48px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, .85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-s);
+  z-index: 2;
+}
+
+.metaCoordSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.coordBtn {
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  border-radius: 8px !important;
+}
+.coordBtn .arrow {
+  width: 16px !important;
+  height: 16px !important;
+}
+.coordBtn svg {
+  width: 8px;
+  height: 8px;
+}
+.metaKey {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.metaVal {
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.metaDivider {
+  width: 1px;
+  height: 28px;
+  background: var(--line);
+}
+
+/* ─── Stats strip ─── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.stat::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--lilac-200), var(--violet-500), var(--purple-700));
+  opacity: .6;
+}
+
+.statNum {
+  font-family: var(--font-instrument-serif), serif;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--ink);
+}
+.statNum sup {
+  color: var(--violet-500);
+  font-size: .5em;
+  vertical-align: super;
+  margin-left: 2px;
+}
+.statLabel { font-size: 13px; color: var(--ink-3); }
+.statSub   { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+/* ─── Responsivo ─── */
+@media (max-width: 1100px) {
+  .heroLayout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .heroContent { align-items: center; }
+  .desktopOnly { display: none; }
+  .heroLede    { margin-left: auto; margin-right: auto; }
+  .heroTitle   { max-width: none; }
+  .heroActions { 
+    justify-content: center; 
+    width: 100%;
+  }
+}
+
+@media (max-width: 880px) {
+  .heroMeta  { position: static; margin-top: 32px; width: 100%; justify-content: center; }
+  .heroStage { padding: 48px 24px; }
+  .stats     { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .heroActions :global(.btn) {
+    justify-content: center;
+    width: 100%;
+    padding: 16px 20px;
+  }
+  .stats { grid-template-columns: 1fr; }
+  .heroTitle { font-size: 40px; }
+  .heroMeta { 
+    flex-direction: column; 
+    gap: 16px; 
+    text-align: center;
+    padding: 20px;
+  }
+  .metaCoordSection {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .metaDivider { width: 40px; height: 1px; }
+}

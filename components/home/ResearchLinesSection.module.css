@@ -1,0 +1,83 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.card {
+  position: relative;
+  padding: 28px 24px 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 280px;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  overflow: hidden;
+}
+/* Gradiente decorativo no topo do card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: radial-gradient(60% 100% at 50% 0%, var(--lilac-100) 0%, transparent 70%);
+  opacity: .7;
+  pointer-events: none;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-m);
+  border-color: var(--lilac-200);
+}
+
+.lineNum {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  color: var(--purple-700);
+  letter-spacing: .1em;
+  position: relative;
+  z-index: 1;
+}
+
+.lineIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #fff, var(--lilac-50));
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  color: var(--purple-700);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.lineTitle {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+  position: relative;
+  z-index: 1;
+}
+
+.lineDesc {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .grid { grid-template-columns: 1fr; } }

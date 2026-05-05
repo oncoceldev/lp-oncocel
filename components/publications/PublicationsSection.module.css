@@ -1,0 +1,98 @@
+.tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  margin-bottom: 28px;
+}
+
+.tab {
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--ink-3);
+  transition: background .2s, color .2s;
+}
+.tab:hover { color: var(--ink); }
+
+.tabActive {
+  background: var(--ink);
+  color: #fff;
+}
+.tabActive:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ─── Lista ─── */
+.list {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 24px;
+  align-items: start;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background .2s;
+}
+.item:last-child { border-bottom: 0; }
+.item:hover { background: var(--lilac-50); }
+
+.year {
+  font-family: var(--font-instrument-serif), serif;
+  font-size: 24px;
+  color: var(--purple-700);
+  line-height: 1;
+}
+
+.body h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.4;
+  font-weight: 500;
+}
+.body p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.venue {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--lilac-50);
+  color: var(--purple-700);
+  font-family: var(--font-geist-mono), monospace;
+  white-space: nowrap;
+}
+
+/* ─── Estado vazio ─── */
+.empty {
+  padding: 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  font-style: italic;
+}
+.emptySub {
+  font-style: normal;
+  color: var(--ink-3);
+  font-size: 13px;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+@media (max-width: 700px) {
+  .item   { grid-template-columns: 1fr; }
+  .venue  { justify-self: start; }
+}

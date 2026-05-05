@@ -1,0 +1,136 @@
+.join {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  padding: 64px;
+  background: linear-gradient(135deg, #3d1e46 0%, #50275c 40%, #6f3780 100%);
+  color: #fff;
+}
+/* Bolhas decorativas */
+.join::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto auto;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(203,176,212,.45) 0%, transparent 60%);
+  pointer-events: none;
+}
+.join::after {
+  content: "";
+  position: absolute;
+  inset: auto auto -30% -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(146,90,163,.35) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.joinInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+/* Kicker sobreposto ao fundo escuro */
+.kicker {
+  color: #cbb0d4 !important;
+}
+.kicker::before {
+  background: #cbb0d4 !important;
+}
+
+.joinTitle {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+  margin: 0 0 20px;
+}
+.joinTitle em { color: #cbb0d4; font-style: italic; }
+
+.joinLede {
+  color: rgba(255,255,255,.78);
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 44ch;
+  margin: 0;
+}
+
+.joinActions {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.emailBtn {
+  background: #fff !important;
+  color: var(--ink) !important;
+}
+
+/* ─── Níveis de entrada ─── */
+.levels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.level {
+  padding: 20px 22px;
+  border-radius: var(--radius-m);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+}
+
+.levelTitle {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.levelNum {
+  font-family: var(--font-geist-mono), monospace;
+  color: rgba(255,255,255,.5);
+  font-size: 12px;
+}
+
+.levelDesc {
+  margin: 0;
+  color: rgba(255,255,255,.68);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1000px) {
+  .joinInner { grid-template-columns: 1fr; gap: 48px; }
+  .join { padding: 56px 40px; }
+}
+
+@media (max-width: 640px) {
+  .join { 
+    padding: 40px 20px; 
+    text-align: left;
+    border-radius: var(--radius-l);
+  }
+  .joinInner { gap: 32px; }
+  .joinTitle { font-size: 32px; }
+  .joinLede { font-size: 16px; }
+  .joinActions { width: 100%; }
+  .emailBtn { 
+    width: 100%; 
+    justify-content: center; 
+    padding: 16px;
+  }
+  .levels { gap: 10px; }
+  .level { padding: 16px 18px; }
+}
