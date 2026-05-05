@@ -4,8 +4,8 @@ import styles from './Coordenacao.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Coordenação — ONCOCEL · UPE',
-  description: 'Conheça a mente coordenadora do ONCOCEL, Prof.ª Luiza Rayanna A. de Lima.',
+  title: 'Coordenação',
+  description: 'Conheça a coordenação do ONCOCEL, liderada pela Prof.ª Luiza Rayanna A. de Lima na UPE Campus Garanhuns.',
 }
 
 const ArrowIcon = () => (
@@ -15,7 +15,7 @@ const ArrowIcon = () => (
   </svg>
 )
 
-export default function CoordenacaoPage() {
+export default function CoordinationPage() {
   return (
     <main className={styles.main}>
       <div className="container">

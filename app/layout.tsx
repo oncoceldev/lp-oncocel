@@ -23,9 +23,60 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: 'ONCOCEL — Oncologia Celular Experimental · UPE',
+  metadataBase: new URL('https://lp-oncocel.vercel.app'), // Replace with actual domain if different
+  title: {
+    default: 'ONCOCEL — Oncologia Celular Experimental · UPE',
+    template: '%s | ONCOCEL · UPE'
+  },
   description:
-    'Grupo de pesquisa em oncologia celular experimental da Universidade de Pernambuco, Campus Garanhuns.',
+    'Grupo de Pesquisa em Oncologia Celular Experimental da Universidade de Pernambuco (UPE), Garanhuns. Investigamos mecanismos celulares do câncer e potenciais terapêuticos.',
+  keywords: ['ONCOCEL', 'Oncologia', 'Câncer', 'Pesquisa Celular', 'UPE', 'Garanhuns', 'Biologia Celular', 'Ciência', 'Pernambuco'],
+  authors: [{ name: 'ONCOCEL' }],
+  creator: 'ONCOCEL',
+  publisher: 'Universidade de Pernambuco',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: 'https://lp-oncocel.vercel.app',
+    siteName: 'ONCOCEL',
+    title: 'ONCOCEL — Oncologia Celular Experimental · UPE',
+    description: 'Grupo de pesquisa dedicado ao estudo de processos celulares associados ao câncer na Universidade de Pernambuco.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'ONCOCEL - Oncologia Celular Experimental',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ONCOCEL — Oncologia Celular Experimental · UPE',
+    description: 'Grupo de pesquisa dedicado ao estudo de processos celulares associados ao câncer na Universidade de Pernambuco.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -36,9 +87,12 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
+      <head>
+        <link rel="canonical" href="https://lp-oncocel.vercel.app" />
+      </head>
       <body>
         <Nav />
-        {children}
+        <main>{children}</main>
         <Footer />
         <ScrollReveal />
       </body>

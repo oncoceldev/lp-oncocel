@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import MembersSection from '@/components/members/MembersSection'
 
 export const metadata: Metadata = {
-  title: 'Integrantes — ONCOCEL · UPE',
-  description: 'Conheça os pesquisadores do ONCOCEL: coordenação, pós-doutoranda, doutoranda, mestrandas e estudantes de iniciação científica.',
+  title: 'Integrantes',
+  description: 'Conheça os pesquisadores, pós-doutorandos, mestrandos e bolsistas de iniciação científica que compõem o grupo ONCOCEL.',
 }
 
 export default function IntegrantesPage() {
