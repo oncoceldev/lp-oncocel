@@ -23,7 +23,7 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://lp-oncocel.vercel.app'), // Replace with actual domain if different
+  metadataBase: new URL('https://lp-oncocel.vercel.app'),
   title: {
     default: 'ONCOCEL — Oncologia Celular Experimental · UPE',
     template: '%s | ONCOCEL · UPE'
@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'ONCOCEL' }],
   creator: 'ONCOCEL',
   publisher: 'Universidade de Pernambuco',
+  alternates: {
+    canonical: 'https://lp-oncocel.vercel.app',
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -72,11 +75,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/apple-touch-icon.png',
-  },
 }
 
 export default function RootLayout({
@@ -87,9 +85,6 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
-      <head>
-        <link rel="canonical" href="https://lp-oncocel.vercel.app" />
-      </head>
       <body>
         <Nav />
         <main>{children}</main>
