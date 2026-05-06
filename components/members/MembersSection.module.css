@@ -78,6 +78,20 @@
   transform: translateY(-4px);
 }
 
+/* Colaboradores — menos destaque, listados por último */
+.colabCard {
+  background: var(--lilac-50);
+  border-color: var(--line-soft, var(--line));
+}
+.colabCard .memberName { color: var(--ink-2); }
+.colabCard .avatarWrapper::before { opacity: .3; }
+.colabCard .avatarWrapper::after  { opacity: .2; }
+.colabCard:hover {
+  border-color: var(--lilac-200);
+  box-shadow: var(--shadow-s);
+  transform: translateY(-2px);
+}
+
 .avatar {
   width: 80px;
   height: 80px;

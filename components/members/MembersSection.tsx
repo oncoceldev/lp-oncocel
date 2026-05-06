@@ -28,7 +28,7 @@ const AVATAR_GRADS = [
   ['#f0e6f2', '#6f3780'],
 ]
 
-const ORDER: Record<RoleKey, number> = { coord: 0, colab: 1, dout: 2, mest: 3, ic: 4 }
+const ORDER: Record<RoleKey, number> = { coord: 0, dout: 1, mest: 2, ic: 3, colab: 4 }
 
 function hash(s: string) {
   let h = 0
@@ -44,8 +44,9 @@ function initials(name: string) {
 }
 
 const LattesIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-    <path d="M3 9l6-6M4 3h5v5" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+    <rect x="2" y="1" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.4"/>
+    <path d="M4.5 4.5h5M4.5 7h5M4.5 9.5h3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
   </svg>
 )
 
@@ -130,7 +131,7 @@ export default function MembersSection() {
           {pagedMembers.map((m) => {
             const [c1, c2] = AVATAR_GRADS[hash(m.name) % AVATAR_GRADS.length]
             return (
-              <article key={m.email} className={styles.member}>
+              <article key={m.lattes} className={`${styles.member} ${m.roleKey === 'colab' ? styles.colabCard : ''}`}>
                 <div className={styles.avatarWrapper}>
                   {m.photo ? (
                     <div className={styles.avatar} style={{ position: 'relative' }}>
@@ -168,14 +169,19 @@ export default function MembersSection() {
                   {m.project || 'Projeto em definição'}
                 </p>
 
-                <div className={styles.memberFoot}>
-                  <a
-                    className={styles.memberEmail}
-                    href={`mailto:${m.email}`}
-                    title={m.email}
-                  >
-                    {m.email}
-                  </a>
+                <div
+                  className={styles.memberFoot}
+                  style={!m.email || m.roleKey === 'colab' ? { justifyContent: 'flex-end' } : undefined}
+                >
+                  {m.email && m.roleKey !== 'colab' && (
+                    <a
+                      className={styles.memberEmail}
+                      href={`mailto:${m.email}`}
+                      title={m.email}
+                    >
+                      {m.email}
+                    </a>
+                  )}
                   <a
                     className={styles.lattesBtn}
                     href={m.lattes}

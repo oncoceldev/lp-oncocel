@@ -78,7 +78,15 @@ export default function Footer() {
             © {new Date().getFullYear()} ONCOCEL · Todos os direitos reservados.
           </div>
           <div className={styles.legal}>
-            Desenvolvido pela equipe ONCOCEL
+            Desenvolvido por{' '}
+            <a
+              href="https://www.linkedin.com/in/joaolucascordeiro/?skipRedirect=true"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.devLink}
+            >
+              João Lucas Cordeiro
+            </a>
           </div>
         </div>
       </div>

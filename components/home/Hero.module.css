@@ -13,7 +13,7 @@
   background: #fff;
   border: 1px solid var(--line);
   overflow: hidden;
-  padding: 64px 64px 80px;
+  padding: 64px;
   box-shadow: var(--shadow-m);
 }
 
@@ -163,21 +163,19 @@
   margin-top: 36px;
 }
 
-/* ─── Meta card (floating info) ─── */
+/* ─── Meta card (inline, below actions) ─── */
 .heroMeta {
-  position: absolute;
-  right: 48px;
-  bottom: 48px;
   display: flex;
   gap: 24px;
   align-items: center;
+  width: fit-content;
+  margin-top: 24px;
   padding: 14px 18px;
   background: rgba(255, 255, 255, .85);
   backdrop-filter: blur(10px);
   border: 1px solid var(--line);
   border-radius: 16px;
   box-shadow: var(--shadow-s);
-  z-index: 2;
 }
 
 .metaCoordSection {
@@ -209,6 +207,7 @@
   font-size: 14px;
   color: var(--ink);
   font-weight: 500;
+  white-space: nowrap;
 }
 .metaDivider {
   width: 1px;
@@ -283,7 +282,6 @@
 }
 
 @media (max-width: 880px) {
-  .heroMeta  { position: static; margin-top: 32px; width: 100%; justify-content: center; }
   .heroStage { padding: 48px 24px; }
   .stats     { grid-template-columns: repeat(2, 1fr); }
 }

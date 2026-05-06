@@ -3,47 +3,49 @@ import styles from './ResearchLinesSection.module.css'
 const LINES = [
   {
     num: '01',
-    title: 'Mecanismos de proliferação e migração celular',
-    desc: 'Estudo dos processos celulares que governam o crescimento e a disseminação de células tumorais em diferentes neoplasias.',
+    title: 'Bioprospecção Computacional e Experimental de Compostos Bioativos na Oncologia',
     icon: (
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
-        <circle cx="13" cy="13" r="9"/>
-        <circle cx="13" cy="13" r="4"/>
-        <circle cx="10" cy="10" r="1" fill="currentColor"/>
-        <circle cx="16" cy="14" r="1" fill="currentColor"/>
+        <circle cx="13" cy="13" r="2" fill="currentColor" opacity=".5"/>
+        <ellipse cx="13" cy="13" rx="11" ry="4.5"/>
+        <ellipse cx="13" cy="13" rx="11" ry="4.5" transform="rotate(60 13 13)"/>
+        <ellipse cx="13" cy="13" rx="11" ry="4.5" transform="rotate(-60 13 13)"/>
       </svg>
     ),
   },
   {
     num: '02',
-    title: 'Compostos bioativos e metabólitos prebióticos',
-    desc: 'Avaliação do potencial anticâncer de extratos vegetais, proteínas microalgais e metabólitos produzidos por fermentação prebiótica.',
+    title: 'Descoberta e Validação de Biomarcadores do Microambiente Tumoral para diagnóstico e prognóstico',
     icon: (
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
-        <path d="M4 18c3-6 6-6 9 0s6 6 9 0"/>
-        <path d="M4 14c3-6 6-6 9 0s6 6 9 0"/>
-        <circle cx="13" cy="13" r="10" opacity=".3"/>
+        <circle cx="13" cy="13" r="4"/>
+        <circle cx="13" cy="13" r="9"/>
+        <path d="M13 2v4M13 20v4M2 13h4M20 13h4" strokeLinecap="round"/>
       </svg>
     ),
   },
   {
     num: '03',
-    title: 'Biomarcadores de diagnóstico e prognóstico',
-    desc: 'Expressão diferencial de proteínas como ADAM-10 e ADAMTS-13 como biomarcadores em neoplasias gastrintestinais, pancreáticas e colorretais.',
+    title: 'Avaliação Nutricional, Inflamação e Inovação Diagnóstica em Oncologia',
     icon: (
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
-        <rect x="5" y="5" width="16" height="16" rx="2"/>
-        <path d="M9 9h3M9 13h8M9 17h6"/>
+        <path d="M9.5 4v8.5L4 22h18L16.5 12.5V4" strokeLinejoin="round" strokeLinecap="round"/>
+        <path d="M8.5 4h9" strokeLinecap="round"/>
+        <path d="M7 18.5h12" strokeOpacity=".4" strokeLinecap="round"/>
       </svg>
     ),
   },
   {
     num: '04',
-    title: 'Epidemiologia molecular e saúde pública',
-    desc: 'Impacto da detecção precoce de cânceres, distribuição diagnóstica em populações vulneráveis e estudos clínicos aplicados em oncologia.',
+    title: 'Inovação Diagnóstica e Equidade em Saúde na Atenção Oncológica',
     icon: (
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
-        <path d="M13 3l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/>
+        <circle cx="13" cy="8" r="3.5"/>
+        <path d="M5 23c0-4.5 3.5-7 8-7s8 2.5 8 7"/>
+        <circle cx="4" cy="11" r="2.5"/>
+        <path d="M1 23c0-3 1.5-5 3-5"/>
+        <circle cx="22" cy="11" r="2.5"/>
+        <path d="M25 23c0-3-1.5-5-3-5"/>
       </svg>
     ),
   },
@@ -62,8 +64,8 @@ export default function ResearchLinesSection() {
             <h2 className="section-title">Onde nossa <em>ciência</em> acontece.</h2>
           </div>
           <p className="section-lede">
-            Quatro eixos interdependentes que articulam investigação de mecanismos celulares,
-            avaliação de compostos bioativos e epidemiologia molecular do câncer.
+            Quatro eixos interdependentes que articulam bioprospecção de compostos,
+            descoberta de biomarcadores, avaliação nutricional e equidade no cuidado oncológico.
           </p>
         </div>
 
@@ -77,7 +79,6 @@ export default function ResearchLinesSection() {
               <span className={styles.lineNum}>LINHA · {line.num}</span>
               <div className={styles.lineIcon}>{line.icon}</div>
               <h3 className={styles.lineTitle}>{line.title}</h3>
-              <p className={styles.lineDesc}>{line.desc}</p>
             </article>
           ))}
         </div>

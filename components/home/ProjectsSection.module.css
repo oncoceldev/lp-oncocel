@@ -8,22 +8,17 @@
   position: relative;
   border-radius: var(--radius-l);
   padding: 32px;
-  border: 1px solid var(--line);
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  min-height: 260px;
-  overflow: hidden;
-}
-
-/* Variante destaque */
-.featured {
+  border: 1px solid transparent;
   background: linear-gradient(135deg, #3d1e46 0%, #50275c 50%, #6f3780 100%);
   color: #fff;
-  border-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 200px;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
 }
-.featured::before {
+.card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -32,53 +27,30 @@
     radial-gradient(50% 50% at 0% 100%, rgba(203,176,212,.35) 0%, transparent 60%);
   pointer-events: none;
 }
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(61,30,70,.45);
+}
 .card > * { position: relative; z-index: 1; }
 
-.tag {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--lilac-50);
-  color: var(--purple-700);
+.num {
   font-family: var(--font-geist-mono), monospace;
   font-size: 11px;
-  letter-spacing: .08em;
-}
-.featured .tag {
-  background: rgba(255,255,255,.14);
-  color: #fff;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.6);
 }
 
 .title {
   font-family: var(--font-instrument-serif), serif;
   font-weight: 400;
-  font-size: 28px;
-  line-height: 1.15;
+  font-size: 20px;
+  line-height: 1.3;
   margin: 0;
+  color: #fff;
 }
 
-.desc {
-  color: var(--ink-3);
-  font-size: 15px;
-  line-height: 1.55;
-  margin: 0;
-}
-.featured .desc { color: rgba(255,255,255,.78); }
-
-.link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--purple-700);
-  margin-top: auto;
-}
-.featured .link { color: #fff; }
-
-@media (max-width: 880px) { 
-  .grid { grid-template-columns: 1fr; } 
-  .card { padding: 24px; min-height: auto; }
-  .title { font-size: 24px; }
+@media (max-width: 880px) {
+  .grid { grid-template-columns: 1fr; gap: 14px; }
+  .card { padding: 24px 20px; min-height: unset; gap: 16px; }
+  .title { font-size: 18px; }
 }

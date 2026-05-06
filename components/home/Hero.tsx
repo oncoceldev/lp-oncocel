@@ -55,6 +55,24 @@ export default function Hero() {
                 <span className="arrow"><ArrowIcon /></span>
               </Link>
             </div>
+
+            <div className={styles.heroMeta}>
+              <div className={styles.metaCoordSection}>
+                <div>
+                  <div className={styles.metaKey}>Coordenação</div>
+                  <div className={styles.metaVal}>Prof.ª Luiza Rayanna A. de Lima</div>
+                </div>
+                <Link href="/coordenacao" className={`btn btn-ghost ${styles.coordBtn}`}>
+                  Conhecer
+                  <span className="arrow"><ArrowIcon /></span>
+                </Link>
+              </div>
+              <div className={styles.metaDivider} />
+              <div>
+                <div className={styles.metaKey}>Instituição</div>
+                <div className={styles.metaVal}>UPE · Campus Garanhuns</div>
+              </div>
+            </div>
           </div>
 
           <div className={`${styles.heroVisual} ${styles.desktopOnly}`}>
@@ -67,24 +85,6 @@ export default function Hero() {
                 placeholder="blur"
               />
             </div>
-          </div>
-        </div>
-
-        <div className={styles.heroMeta}>
-          <div className={styles.metaCoordSection}>
-            <div>
-              <div className={styles.metaKey}>Coordenação</div>
-              <div className={styles.metaVal}>Prof.ª Luiza Rayanna A. de Lima</div>
-            </div>
-            <Link href="/coordenacao" className={`btn btn-ghost ${styles.coordBtn}`}>
-              Conhecer
-              <span className="arrow"><ArrowIcon /></span>
-            </Link>
-          </div>
-          <div className={styles.metaDivider} />
-          <div>
-            <div className={styles.metaKey}>Instituição</div>
-            <div className={styles.metaVal}>UPE · Campus Garanhuns</div>
           </div>
         </div>
       </div>
